@@ -149,3 +149,29 @@ abbr        import ipdb..
 snippet     ipy
 abbr        import ipython..
 	from IPython import embed; embed()
+
+snippet     cmdscript
+abbr        import argparse..
+    import argparse
+
+    # parse command line arguments
+    def parse_args():
+        parser = argparse.ArgumentParser(description="${1}")
+        ${2}
+        return parser.parse_args()
+
+    def main():
+        args = parse_args()
+
+    if __name__="__main__":
+        main()
+
+snippet     darg
+abbr        parser.add_argument(..., required=True)
+    parser.add_argument("${1}", "--${2}", type=${3}, required=True, \
+        help="${4}")
+
+snippet     oarg
+abbr        parser.add_argument(..., default=...)
+    parser.add_argument("${1}", "--${2}", type=${3}, default=${4}, \
+        help="${4}")
